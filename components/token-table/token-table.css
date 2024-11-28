@@ -1,0 +1,62 @@
+.token-table {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* 第一列較窄，第二列較寬 */
+    gap: 20px;
+    /* 元素間距 */
+}
+
+.token-table h3 {
+    margin-left: 70px;
+    font-size: 18px;
+    /* 自定義字體大小 */
+    color: #333;
+    /* 標題文字顏色 */
+}
+
+.token-table div {
+    font-size: 16px;
+    /* 內容文字大小 */
+    color: #666;
+    /* 內容文字顏色 */
+    background-color: #f9f9f9;
+    /* 背景顏色 */
+    padding: 5px;
+    /* 內邊距 */
+    border: 1px solid #d4d4d4;
+    /* 邊框 */
+    border-radius: 5px;
+    /* 圓角 */
+    width: 250px;
+    /* 固定寬度 */
+    height: 350px;
+    /* 固定高度 */
+    overflow: hidden;
+    /* 隱藏超出範圍的內容 */
+    text-overflow: ellipsis;
+    /* 將溢出的文字用省略號顯示 */
+    white-space: nowrap;
+    /* 強制單行顯示（若需要多行，請改為 normal） */
+    box-sizing: border-box;
+    /* 確保寬高包含邊框和內邊距 */
+}
+
+#reseller-title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#vortex-title {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#reseller-text {
+    grid-column: 1/2;
+    grid-row: 2 / 3;
+}
+
+#vortex-text {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}

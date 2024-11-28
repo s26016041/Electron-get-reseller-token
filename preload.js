@@ -1,14 +1,13 @@
-// preload.js
+const { contextBridge } = require('electron');
+const ResellerApi = require('./src/reseller-api/reseller-api.js');
 
-// 所有的 Node.js API接口 都可以在 preload 进程中被调用.
-// 它拥有与Chrome扩展一样的沙盒。
-window.addEventListener('DOMContentLoaded', () => {
-    const replaceText = (selector, text) => {
-      const element = document.getElementById(selector)
-      if (element) element.innerText = text
+contextBridge.exposeInMainWorld('api', {
+    getResellToken: async (email, password) => {
+        const resellerApi = new ResellerApi();
+        return await resellerApi.getResellToken(email, password);
+    },
+    getVortexToken: async (resellToken) => {
+        const resellerApi = new ResellerApi();
+        return await resellerApi.getVortexToken(resellToken);
     }
-  
-    for (const dependency of ['chrome', 'node', 'electron']) {
-      replaceText(`${dependency}-version`, process.versions[dependency])
-    }
-  })
+});
