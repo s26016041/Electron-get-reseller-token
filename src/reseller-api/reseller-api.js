@@ -9,6 +9,7 @@ class ResellerApi {
      * @returns {{ExpiresIn:number,IdToken:string}}
      */
     async getResellToken(username, password) {
+
         try {
             const requestData = {
                 AuthFlow: "USER_PASSWORD_AUTH",
@@ -31,11 +32,9 @@ class ResellerApi {
                     'X-Amz-Target': 'AWSCognitoIdentityProviderService.InitiateAuth'
                 },
             });
-
             return postResponse.data.AuthenticationResult
         } catch (error) {
-            alert("reseller 或 cognito 修改了登入方式 API 打不通請聯繫開發人員")
-            console.log(error)
+            // console.log(error)
         }
     }
 
@@ -68,7 +67,6 @@ class ResellerApi {
 
             return vortextokenPostResponse.data
         } catch (error) {
-            alert("reseller 或 cognito 修改了登入方式 API 打不通請聯繫開發人員")
             console.log(error)
         }
     }

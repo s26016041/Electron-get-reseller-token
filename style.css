@@ -2,3 +2,8 @@
     margin-left: 200px; /* 向右移動 50px */
     margin-top: 50px; /* 向下移動 20px */
 }
+
+#reminder-box-container {
+    margin-left: 330px; /* 向右移動 50px */
+    margin-top: 20px; /* 向下移動 20px */
+}

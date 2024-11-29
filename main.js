@@ -1,21 +1,27 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('node:path')
+const ResellerApi = require(path.resolve(app.getAppPath(), './src/reseller-api/reseller-api.js'));
+const resellerApi = new ResellerApi
 
 const createWindow = () => {
-  const win = new BrowserWindow({
-    autoHideMenuBar: true,
-    resizable: false,
-    width: 800,
-    height: 600,
-    webPreferences: {
-      contextIsolation: true, // 開啟上下文隔離
-      preload: path.join(__dirname, 'preload.js'), // 指向 preload.js
-    }
-  });
+    const win = new BrowserWindow({
+        autoHideMenuBar: true,
+        resizable: false,
+        width: 800,
+        height: 600,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js')
+        }
+    });
 
-  win.loadFile('index.html');
+    win.loadFile('index.html');
 };
 
 app.whenReady().then(() => {
-  createWindow();
+    ipcMain.handle('getResellToken', async (event, username, password) => resellerApi.getResellToken(username, password))
+    ipcMain.handle('getVortexToken', async (event, resellToken) => resellerApi.getVortexToken(resellToken))
+    ipcMain.handle('resolve', async (event, place) => path.resolve(app.getAppPath(),place))
+
+    createWindow();
 });
+

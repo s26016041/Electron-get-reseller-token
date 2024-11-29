@@ -16,30 +16,29 @@
 
 .token-table div {
     font-size: 16px;
-    /* 內容文字大小 */
     color: #666;
-    /* 內容文字顏色 */
     background-color: #f9f9f9;
-    /* 背景顏色 */
     padding: 5px;
-    /* 內邊距 */
     border: 1px solid #d4d4d4;
-    /* 邊框 */
     border-radius: 5px;
-    /* 圓角 */
-    width: 250px;
-    /* 固定寬度 */
-    height: 350px;
-    /* 固定高度 */
-    overflow: hidden;
-    /* 隱藏超出範圍的內容 */
-    text-overflow: ellipsis;
-    /* 將溢出的文字用省略號顯示 */
-    white-space: nowrap;
-    /* 強制單行顯示（若需要多行，請改為 normal） */
+    width: 250px; /* 固定寬度 */
+    height: 350px; /* 固定高度 */
     box-sizing: border-box;
-    /* 確保寬高包含邊框和內邊距 */
+    overflow: hidden; /* 隱藏超出內容 */
+    text-overflow: ellipsis; /* 超出顯示省略號 */
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* 最大顯示6行 */
+    -webkit-box-orient: vertical;
+    
+    word-wrap: break-word;
+    white-space: normal;
 }
+
+
+
+
+
 
 #reseller-title {
     grid-column: 1 / 2;

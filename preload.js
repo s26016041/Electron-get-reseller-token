@@ -1,13 +1,16 @@
-const { contextBridge } = require('electron');
-const ResellerApi = require('./src/reseller-api/reseller-api.js');
+const { contextBridge, ipcRenderer } = require('electron')
 
-contextBridge.exposeInMainWorld('api', {
-    getResellToken: async (email, password) => {
-        const resellerApi = new ResellerApi();
-        return await resellerApi.getResellToken(email, password);
-    },
-    getVortexToken: async (resellToken) => {
-        const resellerApi = new ResellerApi();
-        return await resellerApi.getVortexToken(resellToken);
-    }
-});
+contextBridge.exposeInMainWorld('versions', {
+  node: () => process.versions.node,
+  chrome: () => process.versions.chrome,
+  electron: () => process.versions.electron,
+})
+
+contextBridge.exposeInMainWorld('resellerApi', {
+  getResellToken: (username, password) => ipcRenderer.invoke('getResellToken', username, password),
+  getVortexToken: (resellToken) => ipcRenderer.invoke('getVortexToken', resellToken)
+})
+
+contextBridge.exposeInMainWorld('path', {
+  resolve:(place)=> ipcRenderer.invoke('resolve', place)
+})
