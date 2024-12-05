@@ -1,9 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path')
 const ResellerApi = require(path.resolve(__dirname, './src/reseller-api/reseller-api.js'));
-require('update-electron-app')()
-
 const resellerApi = new ResellerApi
+
+
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -13,7 +13,8 @@ const createWindow = () => {
         height: 600,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
+        icon: path.join(__dirname, './icons/icon.png')
     });
 
     win.loadFile('index.html');
