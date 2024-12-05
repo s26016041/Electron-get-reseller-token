@@ -2,6 +2,20 @@ const { FusesPlugin } = require('@electron-forge/plugin-fuses');
 const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 's26016041',
+          name: 'Electron-get-reseller-token'
+        },
+        prerelease: false,
+        draft: true,
+        authToken:process.env.GITHUB_TOKEN
+      }
+    }
+  ],
   packagerConfig: {
     asar: true,
   },

@@ -7,7 +7,8 @@
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "author": "Fox",
   "license": "ISC",
@@ -25,7 +26,8 @@
   "dependencies": {
     "axios": "^1.7.8",
     "electron-squirrel-startup": "^1.0.1",
-    "qs": "^6.13.1"
+    "qs": "^6.13.1",
+    "update-electron-app": "^3.0.0"
   },
   "config": {
     "forge": {
@@ -37,11 +39,15 @@
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
-          "platforms": ["win32"]
+          "platforms": [
+            "win32"
+          ]
         },
         {
           "name": "@electron-forge/maker-zip",
-          "platforms": ["win32"]
+          "platforms": [
+            "win32"
+          ]
         }
       ]
     }

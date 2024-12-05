@@ -1,8 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path')
-// const ResellerApi = require(path.resolve(app.getAppPath(), './src/reseller-api/reseller-api.js'));
 const ResellerApi = require(path.resolve(__dirname, './src/reseller-api/reseller-api.js'));
-
+require('update-electron-app')()
 
 const resellerApi = new ResellerApi
 
