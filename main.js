@@ -1,6 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path')
-const ResellerApi = require(path.resolve(app.getAppPath(), './src/reseller-api/reseller-api.js'));
+// const ResellerApi = require(path.resolve(app.getAppPath(), './src/reseller-api/reseller-api.js'));
+const ResellerApi = require(path.resolve(__dirname, './src/reseller-api/reseller-api.js'));
+
+
 const resellerApi = new ResellerApi
 
 const createWindow = () => {
@@ -25,3 +28,6 @@ app.whenReady().then(() => {
     createWindow();
 });
 
+const Getpath=()=>{
+
+}
