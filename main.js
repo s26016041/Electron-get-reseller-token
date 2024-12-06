@@ -20,33 +20,31 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-    ipcMain.handle('getResellToken', async (event, username, password, site) => resellerApi.getResellToken(username, password, site))
-    ipcMain.handle('getVortexToken', async (event, resellToken, site) => resellerApi.getVortexToken(resellToken, site))
-
-    // 设置自动更新的检查源
     autoUpdater.setFeedURL({
         provider: "github",
-        owner: "s26016041",  // 替换为 GitHub 用户名
-        repo: "Electron-get-reseller-token"        // 替换为 GitHub 仓库名
+        owner: "s26016041",
+        repo: "Electron-get-reseller-token"
     });
 
-    // 监听检查更新事件
+
     autoUpdater.checkForUpdatesAndNotify();
 
-    // 更新的事件处理
+
     autoUpdater.on('update-available', () => {
         console.log('Update available!');
     });
 
     autoUpdater.on('update-downloaded', () => {
         console.log('Update downloaded!');
-        // 触发安装更新
         autoUpdater.quitAndInstall();
     });
 
     autoUpdater.on('error', (error) => {
         console.log('Update error:', error);
     });
+
+    ipcMain.handle('getResellToken', async (event, username, password, site) => resellerApi.getResellToken(username, password, site))
+    ipcMain.handle('getVortexToken', async (event, resellToken, site) => resellerApi.getVortexToken(resellToken, site))
 
     createWindow();
 });
