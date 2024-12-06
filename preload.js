@@ -1,10 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('resellerApi', {
-  getResellToken: (username, password) => ipcRenderer.invoke('getResellToken', username, password),
-  getVortexToken: (resellToken) => ipcRenderer.invoke('getVortexToken', resellToken)
-})
-
-contextBridge.exposeInMainWorld('path', {
-  resolve:(place)=> ipcRenderer.invoke('resolve', place)
+  getResellToken: (username, password,site) => ipcRenderer.invoke('getResellToken', username, password, site),
+  getVortexToken: (resellToken, site) => ipcRenderer.invoke('getVortexToken', resellToken, site)
 })

@@ -3,8 +3,6 @@ const path = require('node:path')
 const ResellerApi = require(path.resolve(__dirname, './src/reseller-api/reseller-api.js'));
 const resellerApi = new ResellerApi
 
-
-
 const createWindow = () => {
     const win = new BrowserWindow({
         autoHideMenuBar: true,
@@ -21,13 +19,8 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-    ipcMain.handle('getResellToken', async (event, username, password) => resellerApi.getResellToken(username, password))
-    ipcMain.handle('getVortexToken', async (event, resellToken) => resellerApi.getVortexToken(resellToken))
-    ipcMain.handle('resolve', async (event, place) => path.resolve(app.getAppPath(),place))
+    ipcMain.handle('getResellToken', async (event, username, password, site) => resellerApi.getResellToken(username, password, site))
+    ipcMain.handle('getVortexToken', async (event, resellToken, site) => resellerApi.getVortexToken(resellToken, site))
 
     createWindow();
 });
-
-const Getpath=()=>{
-
-}

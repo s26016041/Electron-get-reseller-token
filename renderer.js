@@ -44,3 +44,18 @@ fetch('components/reminder-box/reminder-box.html')
     document.body.appendChild(script);
   });
 
+  fetch('components/site-radio-button/site-radio-button.html')
+  .then(response => response.text())
+  .then(html => {
+    document.getElementById('site-radio-button-container').innerHTML = html;
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href ='components/site-radio-button/site-radio-button.css';
+    document.head.appendChild(link);
+
+
+    const script = document.createElement('script');
+    script.src = 'components/site-radio-button/site-radio-button.js';
+    document.body.appendChild(script);
+  });
