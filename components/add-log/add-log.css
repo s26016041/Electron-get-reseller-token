@@ -1,0 +1,10 @@
+.add-log {
+    display: flex; /* 水平排列 */
+    align-items: center; /* 垂直對齊 */
+    gap: 10px; /* 按鈕與輸入框的間距 */
+  }
+
+  #account-name {
+    text-align: center;
+    width: 100px; /* 限制寬度 */
+  }

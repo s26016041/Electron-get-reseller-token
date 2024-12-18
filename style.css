@@ -1,9 +1,45 @@
+
+
+#account-container{
+    display: flex;
+}
+
+#add-log-container{
+    margin-left: 50px; /* 向右移動 */
+
+}
+
+#account-list-container {
+    flex: 0 0 auto; /* 確保寬度固定 */
+    width: 200px;
+    height: 400px;
+    background-color: rgb(155, 151, 151);
+    color: white;
+    margin-top: 50px; /* 向下移動 */
+    margin-left: 20px; /* 向右移動 */
+    overflow: auto; /* 當內容超出時顯示滾動條 */
+    box-sizing: border-box; /* 確保 padding 不會增加元素尺寸 */
+    padding: 10px; /* 內邊距 */
+    border-radius: 15px; /* 設定圓角 */
+    
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 垂直排列子元素 */
+    gap: 10px; /* 設定子元素之間的間距 */
+}
+
+
+
+#account-token-container {
+    display: flex; /* 设置为Flexbox布局 */
+    width: 100%; /* 确保容器占满可用宽度 */
+}
+
 #token-table-container {
-    margin-left: 200px; /* 向右移動 */
+    margin-left: 30px; /* 向右移動 */
     margin-top: 20px; /* 向下移動  */
 }
 
 #reminder-box-container {
-    margin-left: 330px; /* 向右移動 */
+    margin-left: 160px; /* 向右移動 */
     margin-top: 20px; /* 向下移動 */
 }

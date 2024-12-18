@@ -1,0 +1,57 @@
+/* 父元件設置寬高 */
+.account-list {
+    width: 80%;
+    /* 寬度為父元素的 80% */
+    height: 10%;
+    /* 高度為視窗高度的 10% */
+    position: relative;
+    /* 讓子元素可以絕對定位 */
+    padding: 10px;
+    /* 內邊距 */
+    box-sizing: border-box;
+    /* 包含內邊距在寬高內 */
+}
+
+/* h1 和 p 字體調小 */
+.account-list-name {
+    font-size: 1.2rem;
+    /* 調小 h1 字體 */
+    margin: 0;
+    /* 移除預設外邊距 */
+}
+
+.account-list-account {
+    font-size: 0.7rem;
+    /* 調小 p 字體 */
+    margin: 0;
+    /* 移除預設外邊距 */
+}
+
+/* 刪除按鈕樣式 */
+.delete-button {
+    position: absolute;
+    /* 絕對定位 */
+    top: 5px;
+    /* 距離父元素上方 5px */
+    right: 5px;
+    /* 距離父元素右側 5px */
+    font-size: 1.5rem;
+    /* 字體大小，確保 X 顯示得清楚 */
+    line-height: 1;
+    /* 使 X 保持在按鈕內部居中 */
+    background: none;
+    /* 移除背景顏色 */
+    border: none;
+    /* 移除邊框 */
+    color: black;
+    /* X 的顏色 */
+    cursor: pointer;
+    /* 滑鼠移上去顯示小手圖示 */
+    padding: 0;
+    /* 移除內邊距 */
+}
+
+.delete-button:hover {
+    color: red;
+    /* 滑鼠懸停時 X 變紅色 */
+}

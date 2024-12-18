@@ -47,9 +47,10 @@ class ResellerApi {
                     'X-Amz-Target': 'AWSCognitoIdentityProviderService.InitiateAuth'
                 },
             });
+
             return postResponse.data.AuthenticationResult
         } catch (error) {
-            console.log(error)
+            return null
         }
     }
 
@@ -100,7 +101,7 @@ class ResellerApi {
 
             return vortextokenPostResponse.data
         } catch (error) {
-            console.log(error)
+            return null
         }
     }
 }

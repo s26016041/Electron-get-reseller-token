@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div id="account-password-container"></div>
-    <div id="site-radio-button-container"></div>
-    <div id="token-table-container"></div>
-    <div id="reminder-box-container"></div>  
-    <script src="renderer.js"></script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="components/add-log/add-log.css">
+  <link rel="stylesheet" href="components/account-list/account-list.css">
+</head>
+
+<body>
+  <div id="account-container">
+    <div id="account-password-container"></div>
+    <div id="add-log-container"></div>
+  </div>
+  <div id="site-radio-button-container"></div>
+  <div id="account-token-container">
+    <div id="account-list-container"></div>
+    <div id="token-table-container"></div>
+  </div>
+  <div id="reminder-box-container"></div>
+  <script src="renderer.js"></script>
+  <script src="components\account-list\account-list.js"></script>
+</body>
+
+</html>

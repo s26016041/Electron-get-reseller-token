@@ -1,7 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path')
 const ResellerApi = require(path.resolve(__dirname, './src/reseller-api/reseller-api.js'));
+const WriteFile = require(path.resolve(__dirname, './src/write-file/write-file.js'));
 const resellerApi = new ResellerApi
+const writeFile = new WriteFile
+
 const { autoUpdater } = require("electron-updater");
 
 const createWindow = () => {
@@ -45,6 +48,9 @@ app.whenReady().then(() => {
 
     ipcMain.handle('getResellToken', async (event, username, password, site) => resellerApi.getResellToken(username, password, site))
     ipcMain.handle('getVortexToken', async (event, resellToken, site) => resellerApi.getVortexToken(resellToken, site))
+
+    ipcMain.handle('saveStructAsJson', (event, fileName, struct) => writeFile.saveStructAsJson(fileName, struct))
+    ipcMain.handle('readJsonFile', async (event, fileName) => writeFile.readJsonFile(fileName))
 
     createWindow();
 });
