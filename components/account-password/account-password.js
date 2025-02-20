@@ -8,7 +8,7 @@ document.getElementById('produce-button').addEventListener('click', async () => 
     document.getElementById('reseller-text').innerText ="帳號密碼錯誤"
     return
   }
-  const vortexToken = await window.resellerApi.getVortexToken(resellToken.IdToken, site)
+  const vortexToken = await window.resellerApi.getVortexToken(resellToken.AccessToken, site)
 
   document.getElementById('reseller-text').innerText = `Bearer ` + resellToken.IdToken
 
