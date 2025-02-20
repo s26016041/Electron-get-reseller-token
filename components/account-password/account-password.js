@@ -10,7 +10,7 @@ document.getElementById('produce-button').addEventListener('click', async () => 
   }
   const vortexToken = await window.resellerApi.getVortexToken(resellToken.AccessToken, site)
 
-  document.getElementById('reseller-text').innerText = `Bearer ` + resellToken.IdToken
+  document.getElementById('reseller-text').innerText = `Bearer ` + resellToken.AccessToken
 
   document.getElementById('vortex-text').innerText = `Bearer ` + vortexToken.token
 
